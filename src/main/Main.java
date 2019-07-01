@@ -1,6 +1,7 @@
 package main;
 
 import java.io.FileNotFoundException;
+import java.lang.NoClassDefFoundError;
 
 import processor.Processor;
 
@@ -13,7 +14,7 @@ public class Main {
 		{
 			if(args.length == 2)
 			{
-				new Processor(args[0], args[1]);
+					new Processor(args[0], args[1]);
 			}
 			else
 			{
