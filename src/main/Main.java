@@ -8,24 +8,22 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		try 
+
+		try
 		{
 			if(args.length == 2)
 			{
-				//"/Users/urdad/Desktop/Java/CVSReader/DevTest.csv"
-				//"/Users/urdad/Desktop/Java/CVSReader/"
 				new Processor(args[0], args[1]);
 			}
 			else
 			{
 				System.out.println("Need to specifiy file to read and directory to write to");
 			}
-		} 
-		catch (FileNotFoundException e) 
+		}
+		catch (FileNotFoundException e)
 		{
 			System.out.println("File provided was not found. Please check file path and try again");
 		}
-		
+
 	}
 }
