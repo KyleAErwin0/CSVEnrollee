@@ -10,14 +10,14 @@ import java.util.List;
 import Entity.Enrollee;
 
 public class FileOutput{
-	
-	
-	public void write(List<List<Enrollee>> infoToWrite)
+
+	public void write(List<List<Enrollee>> infoToWrite, String outPut)
 	{
 		BufferedWriter writer = null;
 		
-		if(infoToWrite.size() < 0 && infoToWrite.get(0) != null && infoToWrite.get(0).size() > 0)
+		if(infoToWrite.size() > 0 && infoToWrite.get(0).size() > 0)
 		{
+			System.out.println("writing files");
 			try
 			{
 		        File file = new File(new Date().toString());
@@ -28,7 +28,7 @@ public class FileOutput{
 		        
 				for(int i = 0;  infoToWrite.size() > i; i++)
 				{
-					writer = new BufferedWriter(new FileWriter(file.getAbsolutePath() + "/" + infoToWrite.get(i).get(0).getCompany()  + "-" + i +".txt"));
+					writer = new BufferedWriter(new FileWriter(outPut + infoToWrite.get(i).get(0).getCompany()  + "-" + i +".txt"));
 
 					for(int ii = 0; infoToWrite.get(i).size() > ii; ii++)
 					{

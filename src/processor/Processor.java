@@ -16,9 +16,11 @@ public class Processor {
 	private FileInput reader = new FileInput();
 	private FileOutput writer = new FileOutput();
 	private String file = "";
+	private String outPut = "";
 	
-	public Processor(String file) throws FileNotFoundException
+	public Processor(String file, String outPut) throws FileNotFoundException
 	{
+		this.outPut = outPut;
 		this.file = file;
 		List<List<Enrollee>> infoToWrite;
 		try 
@@ -50,7 +52,7 @@ public class Processor {
 	
 	private void createOutputFile(List<List<Enrollee>> infoToWrite)
 	{
-		writer.write(infoToWrite);
+		writer.write(infoToWrite, outPut);
 	}
 	
 	private List<List<Enrollee>> prepareEntities(List<List<String>> infoIn)
@@ -137,6 +139,7 @@ public class Processor {
 					}
 					catch(Exception e)
 					{
+						System.out.println("a version in the file was un parseable setting -1");
 						enrollee.setVersion(-1);
 					}
 					break;
@@ -150,3 +153,4 @@ public class Processor {
 	}
 
 }
+

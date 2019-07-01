@@ -11,7 +11,16 @@ public class Main {
 		
 		try 
 		{
-			new Processor("/Users/urdad/Desktop/Java/CVSReader/DevTest.csv");
+			if(args.length == 2)
+			{
+				//"/Users/urdad/Desktop/Java/CVSReader/DevTest.csv"
+				//"/Users/urdad/Desktop/Java/CVSReader/"
+				new Processor(args[0], args[1]);
+			}
+			else
+			{
+				System.out.println("Need to specifiy file to read and directory to write to");
+			}
 		} 
 		catch (FileNotFoundException e) 
 		{
