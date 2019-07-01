@@ -14,18 +14,12 @@ public class FileOutput{
 	public void write(List<List<Enrollee>> infoToWrite, String outPut)
 	{
 		BufferedWriter writer = null;
-		
+
 		if(infoToWrite.size() > 0 && infoToWrite.get(0).size() > 0)
 		{
 			System.out.println("writing files");
 			try
-			{
-		        File file = new File(new Date().toString());
-		        if(!file.exists()) 
-		        {
-		        	file.mkdir();
-		        }
-		        
+			{		        
 				for(int i = 0;  infoToWrite.size() > i; i++)
 				{
 					writer = new BufferedWriter(new FileWriter(outPut + infoToWrite.get(i).get(0).getCompany()  + "-" + i +".txt"));
@@ -35,7 +29,7 @@ public class FileOutput{
 						writer.write(infoToWrite.get(i).get(ii).toString());
 						writer.write(System.lineSeparator());
 					}
-					
+
 					writer.close();
 				}
 			}
@@ -44,7 +38,7 @@ public class FileOutput{
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
 
 }

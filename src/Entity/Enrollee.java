@@ -1,13 +1,13 @@
 package Entity;
 
 public class Enrollee extends Company implements Comparable<Enrollee>{
-	
+
 	private String userId;
-	
+
 	private String firstName;
-	
+
 	private String lastName;
-	
+
 	private Integer version;
 
 	public String getUserId() {
@@ -41,10 +41,10 @@ public class Enrollee extends Company implements Comparable<Enrollee>{
 	public void setVersion(Integer version) {
 		this.version = version;
 	}
-	
-	@Override 
+
+	@Override
 	public String toString()
-	{	
+	{
 		String printOut = "";
 		if(this.userId != null && this.firstName != null && this.lastName != null && this.version != null && super.getCompany()!= null)
 		{
@@ -54,12 +54,17 @@ public class Enrollee extends Company implements Comparable<Enrollee>{
 		{
 			printOut = "Problem formatting print out, possibly due to malformed csv file";
 		}
-		
+
 		return printOut;
 	}
-	
+
     @Override
     public int compareTo(Enrollee o) {
-        return this.getLastName().compareToIgnoreCase(o.getLastName());
+				Integer result = this.getLastName().compareToIgnoreCase(o.getLastName());
+				if(result != 0)
+				{
+					return result;
+				}
+        return this.getFirstName().compareToIgnoreCase(o.getFirstName());
     }
 }
